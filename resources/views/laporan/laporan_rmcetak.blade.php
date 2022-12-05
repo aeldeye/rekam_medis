@@ -67,24 +67,16 @@
                                 <td>{{ $l->nama_poli }}</td>
                                 <td>{{ $l->keluhan }}</td>
 
-                                @if ($l->id_dokter == null)
-                                    {
+                                @if ($l->id_dokter == 0)
                                     <td>-</td>
-                                    }
                                 @elseif ($l->id_dokter)
-                                    {
                                     <td>{{ $l->nama_dokter }}</td>
-                                    }
                                 @endif
 
-                                @if ($l->id_perawat == null)
-                                    {
+                                @if ($l->id_perawat == 0)
                                     <td>-</td>
-                                    }
                                 @elseif ($l->id_perawat)
-                                    {
                                     <td>{{ $l->nama_perawat }}</td>
-                                    }
                                 @endif
 
                                 <td>{{ $l->diagnosa }}</td>
