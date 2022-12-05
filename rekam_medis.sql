@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2022 at 11:15 AM
+-- Generation Time: Dec 05, 2022 at 02:52 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -42,12 +42,9 @@ CREATE TABLE `dokters` (
 --
 
 INSERT INTO `dokters` (`id`, `nama_dokter`, `spesialis`, `alamat`, `no_telp`, `created_at`, `updated_at`) VALUES
-(1, 'Aldy Rhama', 'Paru-Paru', 'kembar 3', '081271251193', '2022-11-08 07:24:15', '2022-11-08 06:59:28'),
-(3, 'Putri Khovia', 'Jantung', 'asdasjdajsd', '12312312', '2022-11-08 08:16:49', '2022-11-08 08:16:49'),
-(15, 'Ivan Alfiqri', 'Kaki', 'adasdas', '123123123123123', '2022-11-11 13:04:16', '2022-11-11 13:04:16'),
-(18, 'Dara', 'dkaskdaskd', '1231231', '2222', '2022-11-11 13:08:14', '2022-11-11 13:08:14'),
-(20, 'Putri Khovia', 'Mata', '312312', '1111', '2022-11-11 13:14:26', '2022-11-11 13:14:26'),
-(21, 'Ivan Alfiqri', 'asdasd', '23123', '222222', '2022-11-11 13:34:13', '2022-11-11 13:34:13');
+(23, 'Dokter A', 'Umum', 'Alamat A', '0811111', '2022-11-15 06:28:08', '2022-11-15 06:28:08'),
+(24, 'Dokter B', 'Gigi', 'Alamat B', '0822222', '2022-11-15 06:28:37', '2022-11-15 06:28:37'),
+(25, 'Dokter C', 'Ibu dan Anak', 'Alamat C', '0833333', '2022-11-15 06:31:10', '2022-11-15 06:31:10');
 
 -- --------------------------------------------------------
 
@@ -106,8 +103,13 @@ CREATE TABLE `obats` (
 --
 
 INSERT INTO `obats` (`id`, `nama_obat`, `ket_obat`, `created_at`, `updated_at`) VALUES
-(1, 'Sanmol', 'Obat penurun panas', '2022-11-09 12:43:21', '2022-11-09 12:43:21'),
-(2, 'Saridon dong', 'Obat pereda sakit pada gigi', '2022-11-09 11:53:35', '2022-11-09 12:01:10');
+(4, 'Amoxicillin', 'Antibiotik yang digunakan dalam pengobatan berbagai infeksi bakteri', '2022-11-15 06:39:26', '2022-11-15 06:39:35'),
+(5, 'Asam mefenamat', 'Obat untuk meredakan nyeri dan memberi rasa nyaman', '2022-11-15 06:41:28', '2022-11-15 06:41:28'),
+(6, 'Betahistine', 'Obat anti-vertigo', '2022-11-15 06:42:23', '2022-11-15 06:42:23'),
+(7, 'Ibuprofen', 'Obat untuk meredakan nyeri dan peradangan', '2022-11-15 06:44:27', '2022-11-15 06:44:27'),
+(8, 'Paracetamol', 'Obat untuk menurunkan demam', '2022-11-15 06:45:29', '2022-11-15 06:45:29'),
+(9, 'Vitamin A', 'Untuk menjaga kesehatan mata, kulit, serta organ reproduksi', '2022-11-15 06:46:11', '2022-11-15 06:46:11'),
+(10, 'Ascorbic Acid', 'Obat untuk pasien yang mengalami defisiensi atau kekurangan vitamin C', '2022-11-15 06:47:04', '2022-11-15 06:47:04');
 
 -- --------------------------------------------------------
 
@@ -131,8 +133,11 @@ CREATE TABLE `pasiens` (
 --
 
 INSERT INTO `pasiens` (`id`, `nomor_identitas`, `nama_pasien`, `jenis_kelamin`, `alamat`, `no_telp`, `created_at`, `updated_at`) VALUES
-(1, '1571070601990041', 'Aldy Rhama Wahyudi', 'Laki-Laki', 'Kembar Lestari 2', '081271251193', '2022-11-09 13:13:23', '2022-11-09 13:13:23'),
-(2, '1571070601990042', 'aeldeye', 'Laki-Laki', '2312313asdasdasdas', '081271251191', '2022-11-09 12:26:14', '2022-11-09 12:35:58');
+(3, '1511111', 'Pasien A', 'Laki-Laki', 'Alamat Pasien A', '0881111', '2022-11-15 06:32:35', '2022-11-15 06:32:35'),
+(4, '1522222', 'Pasien B', 'Perempuan', 'Alamat Pasien B', '0882222', '2022-11-15 06:33:09', '2022-11-15 06:33:09'),
+(5, '1533333', 'Pasien C', 'Laki-Laki', 'Alamat Pasien C', '0883333', '2022-11-15 06:33:40', '2022-11-15 06:33:40'),
+(6, '1544444', 'Pasien D', 'Perempuan', 'Alamat Pasien D', '0884444', '2022-11-15 06:34:08', '2022-11-15 06:34:08'),
+(7, '155555', 'Pasien E', 'Perempuan', 'Alamat Pasien E', '0885555', '2022-11-15 06:34:39', '2022-11-15 06:34:39');
 
 -- --------------------------------------------------------
 
@@ -145,6 +150,31 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `perawats`
+--
+
+CREATE TABLE `perawats` (
+  `id` int(50) NOT NULL,
+  `nama_perawat` varchar(100) NOT NULL,
+  `spesialis` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_telp` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perawats`
+--
+
+INSERT INTO `perawats` (`id`, `nama_perawat`, `spesialis`, `alamat`, `no_telp`, `created_at`, `updated_at`) VALUES
+(2, 'Perawat A', 'Gigi', 'Alamat Perawat A', '08711111', '2022-12-05 11:43:50', '2022-12-05 11:44:05'),
+(3, 'Perawat B', 'Umum', 'Alamat Perawat B', '0872222', '2022-12-05 11:47:44', '2022-12-05 11:47:44'),
+(4, 'Perawat C', 'Ibu dan Anak', 'Alamat Perawat C', '0873333', '2022-12-05 11:48:06', '2022-12-05 11:48:06');
 
 -- --------------------------------------------------------
 
@@ -185,7 +215,8 @@ CREATE TABLE `polikliniks` (
 
 INSERT INTO `polikliniks` (`id`, `nama_poli`, `lokasi`, `created_at`, `updated_at`) VALUES
 (1, 'Poliklinik Umum', 'R.3 Lt.1', '2022-11-09 13:45:35', '2022-11-09 13:45:35'),
-(2, 'Poliklinik Kesehatan Ibu dan Anak', 'R.32 Lt.2', '2022-11-09 13:06:42', '2022-11-09 13:12:43');
+(2, 'Poliklinik Kesehatan Ibu dan Anak', 'R.4 Lt.2', '2022-11-09 13:06:42', '2022-11-15 06:35:21'),
+(4, 'Poliklinik Gigi', 'R.2 Lt.1', '2022-11-15 06:35:11', '2022-11-15 06:35:11');
 
 -- --------------------------------------------------------
 
@@ -199,8 +230,10 @@ CREATE TABLE `rekammedis` (
   `id_poli` int(50) NOT NULL,
   `id_pasien` int(50) NOT NULL,
   `keluhan` text NOT NULL,
-  `id_dokter` int(50) NOT NULL,
+  `id_dokter` int(50) DEFAULT NULL,
+  `id_perawat` int(50) DEFAULT NULL,
   `diagnosa` text NOT NULL,
+  `id_obat` int(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -209,9 +242,16 @@ CREATE TABLE `rekammedis` (
 -- Dumping data for table `rekammedis`
 --
 
-INSERT INTO `rekammedis` (`id`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `diagnosa`, `created_at`, `updated_at`) VALUES
-(4, '2022-11-10', 1, 1, 'Sakit Perut', 1, 'asdasdasd', '2022-11-10 15:41:30', '2022-11-10 15:05:32'),
-(5, '2022-11-09', 2, 2, 'asdasdasd', 3, 'asdasdasd', '2022-11-10 14:44:37', '2022-11-10 14:44:37');
+INSERT INTO `rekammedis` (`id`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `id_perawat`, `diagnosa`, `id_obat`, `created_at`, `updated_at`) VALUES
+(11, '2022-11-10', 1, 3, 'Badan Panas', 23, 2, 'Demam', 8, '2022-11-15 06:55:22', '2022-11-15 06:55:22'),
+(12, '2022-11-11', 2, 4, 'Pilek', 25, 3, 'Ada Bakteri di Saluran Hidung', 8, '2022-11-15 06:56:21', '2022-11-15 06:56:21'),
+(13, '2022-11-12', 4, 7, 'Sakit Gigi', 24, 4, 'Gigi Berlubang', 7, '2022-11-15 06:57:04', '2022-11-15 06:57:04'),
+(14, '2022-11-13', 1, 6, 'Kepala Pusing Berat', 23, 2, 'Gejala Vertigo', 6, '2022-11-15 06:58:22', '2022-11-15 06:58:22'),
+(15, '2022-11-15', 4, 5, 'Gusi Sakit', 24, 3, 'Ada pembengkakan pada Gusi', 8, '2022-11-15 07:00:36', '2022-11-15 07:00:36'),
+(16, '2022-11-15', 1, 3, 'Sakit Kepala', 23, 4, 'Gejala Vertigo', 4, '2022-11-15 07:06:57', '2022-11-15 07:07:14'),
+(17, '2022-12-01', 1, 4, 'asdasd', NULL, 3, 'qweqwe', 6, '2022-12-05 12:09:00', '2022-12-05 12:09:00'),
+(18, '2022-12-05', 2, 7, 'Cek Kandungan', 25, NULL, 'Hanya Gerakan Biasa', 10, '2022-12-05 12:30:23', '2022-12-05 12:30:23'),
+(19, '2022-12-06', 4, 5, 'Sakit Gigi dan Gusi', 24, 2, 'Ada Pembengkakan pada Gusi dan Gigi Berlubang', 5, '2022-12-05 12:31:55', '2022-12-05 12:31:55');
 
 -- --------------------------------------------------------
 
@@ -296,6 +336,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `perawats`
+--
+ALTER TABLE `perawats`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -339,7 +385,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `dokters`
 --
 ALTER TABLE `dokters`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -357,13 +403,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `obats`
 --
 ALTER TABLE `obats`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pasiens`
 --
 ALTER TABLE `pasiens`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `perawats`
+--
+ALTER TABLE `perawats`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -375,13 +427,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `polikliniks`
 --
 ALTER TABLE `polikliniks`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rekammedis`
 --
 ALTER TABLE `rekammedis`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `rm_obats`
