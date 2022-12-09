@@ -19,6 +19,8 @@
     <link href="{{ asset('adm_temp/css/style.min.css') }}" rel="stylesheet">
     {{-- Select2 CSS --}}
     <link href="{{ asset('adm_temp/dist/css/select2.min.css') }}" rel="stylesheet" />
+    {{-- Datatables CSS --}}
+    <link href="{{ asset('adm_temp/datatables/datatables.css') }}" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -307,6 +309,10 @@
     <script src="{{ asset('adm_temp/js/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('adm_temp/js/custom.js') }}"></script>
+    {{-- Datatables JavaScript --}}
+    <script src="{{ asset('adm_temp/datatables/datatables.js') }}"></script>
+    {{-- <script src="{{ asset('adm_temp/datatables/jQuery-3.6.0/jquery-3.6.0.js') }}"></script> --}}
+    @stack('scripts2')
     {{-- Select2 JavaScript --}}
     <script src="{{ asset('adm_temp/dist/js/select2.min.js') }}"></script>
     @stack('scripts')

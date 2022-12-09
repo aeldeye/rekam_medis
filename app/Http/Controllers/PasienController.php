@@ -12,7 +12,7 @@ class PasienController extends Controller
     // MENAMPILKAN DATA DI TABEL PASIEN 
     public function index()
     {
-        $pasien = Pasien::orderBy('id','desc')->paginate(10);
+        $pasien = Pasien::all()->sortByDesc('id');
         return view('pasien.pasien_index', compact(['pasien']));
     }
 

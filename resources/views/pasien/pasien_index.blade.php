@@ -8,19 +8,19 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered text-center">
+                                <table id="pasien" class="table table-hover table-bordered text-center">
                                     <a class="btn btn-primary btn-lg fas fa-plus-square" href="/admin/pasien/create"
                                         title="Tambah Pasien"></a>
                                     <br><br>
                                     <thead class="table-light">
                                         <tr>
-                                            <th>NO</th>
-                                            <th>NO IDENTITAS</th>
-                                            <th>NAMA</th>
-                                            <th>JENIS KELAMIN</th>
-                                            <th>ALAMAT</th>
-                                            <th>NO TELEPON</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">NO</th>
+                                            <th class="text-center">NO IDENTITAS</th>
+                                            <th class="text-center">NAMA</th>
+                                            <th class="text-center">JENIS KELAMIN</th>
+                                            <th class="text-center">ALAMAT</th>
+                                            <th class="text-center">NO TELEPON</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     @foreach ($pasien as $psn)
@@ -49,3 +49,15 @@
         </div>
     </div>
 @endsection
+@push('scripts2')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#pasien').DataTable(
+                {
+                    "searching":true,
+                    "paging":true,
+                }
+            );
+        });
+    </script>
+@endpush
