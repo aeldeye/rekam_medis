@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered text-center">
+                                <table id="rekmed" class="table table-hover table-bordered text-center">
                                     @if (auth()->user()->level == 1)
                                         <a class="btn btn-primary btn-lg fas fa-plus-square" href="/admin/rekammedis/create"
                                             title="Tambah Rekam Medis"></a>
@@ -79,3 +79,15 @@
         </div>
     </div>
 @endsection
+@push('scripts2')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#rekmed').DataTable(
+                {
+                    "searching":true,
+                    "paging":true,
+                }
+            );
+        });
+    </script>
+@endpush

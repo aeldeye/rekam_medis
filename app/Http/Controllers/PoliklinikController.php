@@ -12,7 +12,7 @@ class PoliklinikController extends Controller
     // MENAMPILKAN DATA DI TABEL POLIKLINIK
     public function index()
     {
-        $poliklinik = Poliklinik::orderBy('id','desc')->paginate(10);
+        $poliklinik = Poliklinik::all()->sortByDesc('id');
         return view('poliklinik.poliklinik_index', compact(['poliklinik']));
     }
 

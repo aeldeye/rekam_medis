@@ -12,7 +12,7 @@ class DokterController extends Controller
     // MENAMPILKAN DATA DI TABEL DOKTER
     public function index()
     {
-        $dokter = Dokter::orderBy('id','desc')->paginate(10);
+        $dokter = Dokter::all()->sortByDesc('id');
         return view('dokter.dokter_index', compact(['dokter']));
     }
 

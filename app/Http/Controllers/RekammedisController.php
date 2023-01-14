@@ -14,7 +14,7 @@ class RekammedisController extends Controller
 {
     public function index()
     {
-        $rekammedis = Rekammedis::all();
+        $rekammedis = Rekammedis::all()->sortByDesc('id');
         return view('rekammedis.rekammedis_index', ['rekammedis' => $rekammedis]);
     }
 

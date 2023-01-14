@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered text-center">
+                                <table id="poli" class="table table-hover table-bordered text-center">
                                     <a class="btn btn-primary btn-lg fas fa-plus-square" href="/admin/poliklinik/create" title="Tambah Poliklinik"></a>
                                     <br><br>
                                     <thead class="table-light">
@@ -42,3 +42,15 @@
         </div>
     </div>
 @endsection
+@push('scripts2')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#poli').DataTable(
+                {
+                    "searching":true,
+                    "paging":true,
+                }
+            );
+        });
+    </script>
+@endpush

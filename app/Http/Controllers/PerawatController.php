@@ -10,7 +10,7 @@ class PerawatController extends Controller
     // MENAMPILKAN DATA DI TABEL PERAWAT
     public function index()
     {
-        $perawat = Perawat::orderBy('id','desc')->paginate(10);
+        $perawat = Perawat::all()->sortByDesc('id');
         return view('perawat.perawat_index', compact(['perawat']));
     }
 

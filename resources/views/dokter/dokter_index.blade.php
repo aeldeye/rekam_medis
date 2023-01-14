@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-bordered text-center">
+                                <table id="dokter" class="table table-hover table-bordered text-center">
                                     <a class="btn btn-primary btn-lg fas fa-plus-square" href="/admin/dokter/create"
                                         title="Tambah Dokter"></a>
                                     <br><br>
@@ -51,3 +51,15 @@
         </div>
     </div>
 @endsection
+@push('scripts2')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#dokter').DataTable(
+                {
+                    "searching":true,
+                    "paging":true,
+                }
+            );
+        });
+    </script>
+@endpush

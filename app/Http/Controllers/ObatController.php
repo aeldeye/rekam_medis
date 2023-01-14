@@ -12,7 +12,7 @@ class ObatController extends Controller
     // MENAMPILKAN DATA DI TABEL OBAT
     public function index()
     {
-        $obat = Obat::orderBy('id','desc')->paginate(10);
+        $obat = Obat::all()->sortByDesc('id');
         return view('obat.obat_index', compact(['obat']));
     }
 
