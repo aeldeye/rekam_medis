@@ -40,8 +40,8 @@
                                 @enderror"
                                         name="jenis_kelamin" id="">
                                         <option value="">Pilih Jenis Kelamin</option>
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-Laki" {{ $pasien->jenis_kelamin == "Laki-Laki" ? 'selected' : ''}}>Laki-Laki</option>
+                                        <option value="Perempuan" {{ $pasien->jenis_kelamin == "Perempuan" ? 'selected' : ''}}>Perempuan</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         Silahkan Pilih Jenis Kelamin

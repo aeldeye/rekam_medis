@@ -29,12 +29,12 @@
                                 @enderror"
                                         name="jenis_obat" id="">
                                         <option value="">Pilih Jenis Obat</option>
-                                        <option value="Kapusl">Kapsul</option>
-                                        <option value="Pil">Pil</option>
-                                        <option value="Salep">Salep</option>
-                                        <option value="Serbuk">Serbuk</option>
-                                        <option value="Sirup">Sirup</option>
-                                        <option value="Tablet">Tablet</option>
+                                        <option value="Kapusl" {{ $obat->jenis_obat == "Kapsul" ? 'selected' : ''}}>Kapsul</option>
+                                        <option value="Pil" {{ $obat->jenis_obat == "Pil" ? 'selected' : ''}}>Pil</option>
+                                        <option value="Salep" {{ $obat->jenis_obat == "Salep" ? 'selected' : ''}}>Salep</option>
+                                        <option value="Serbuk" {{ $obat->jenis_obat == "Serbuk" ? 'selected' : ''}}>Serbuk</option>
+                                        <option value="Sirup" {{ $obat->jenis_obat == "Sirup" ? 'selected' : ''}}>Sirup</option>
+                                        <option value="Tablet" {{ $obat->jenis_obat == "Tablet" ? 'selected' : ''}}>Tablet</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         Silahkan Pilih Jenis Obat
