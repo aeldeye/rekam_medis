@@ -95,6 +95,9 @@ Route::prefix('admin')->middleware('auth', 'cekUserLogin:1')->group(function () 
     Route::get('/rekammedis/create', [RekammedisController::class, 'create']);
     Route::post('/rekammedis/store', [RekammedisController::class, 'store']);
 
+    Route::get('/rekammedis/{id}/view', [RekammedisController::class, 'view']);
+    Route::post('/rekammedis/{id}/lappasien', [RekammedisController::class, 'lappasien']);
+
     Route::get('/rekammedis/{id}/edit', [RekammedisController::class, 'edit']);
     Route::put('/rekammedis/{id}', [RekammedisController::class, 'update']);
 
@@ -115,6 +118,9 @@ Route::prefix('user')->middleware('auth', 'cekUserLogin:2')->group(function () {
     Route::get('/rekammedis/index', [RekammedisController::class, 'index']);
     Route::get('/rekammedis/create', [RekammedisController::class, 'create']);
     Route::post('/rekammedis/store', [RekammedisController::class, 'store']);
+    Route::get('/rekammedis/{id}/view', [RekammedisController::class, 'view']);
+    Route::post('/rekammedis/{id}/lappasien', [RekammedisController::class, 'lappasien']);
+
     Route::get('/rekammedis/{id}/edit', [RekammedisController::class, 'edit']);
     Route::put('/rekammedis/{id}', [RekammedisController::class, 'update']);
     Route::get('/rekammedis/{id}/delete', [RekammedisController::class, 'delete']);

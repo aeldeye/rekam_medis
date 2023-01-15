@@ -58,6 +58,8 @@
                             <th>PERAWAT</th>
                             <th>DIAGNOSA</th>
                             <th>OBAT</th>
+                            <th>DOSIS</th>
+                            <th>PEMBAYARAN</th>
                         </tr>
                         @foreach ($lap as $l)
                             <tr>
@@ -81,6 +83,8 @@
 
                                 <td>{{ $l->diagnosa }}</td>
                                 <td>{{ $l->nama_obat }}</td>
+                                <td>{{ $l->dosis_obat }}</td>
+                                <td>{{ $l->pembayaran }}</td>
                             </tr>
                         @endforeach
                     </table>

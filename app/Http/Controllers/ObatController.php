@@ -27,7 +27,9 @@ class ObatController extends Controller
         $validasi = $request->validate(
             [
                 'nama_obat' => 'required|unique:obats,nama_obat',
+                'jenis_obat' => 'required',
                 'ket_obat' => 'required',
+                'dosis_obat' => 'required',
 
             ]
         );
@@ -50,7 +52,9 @@ class ObatController extends Controller
         $validasi = $request->validate(
             [
                 'nama_obat' => 'required',
+                'jenis_obat' => 'required',
                 'ket_obat' => 'required',
+                'dosis_obat' => 'required',
             ]
         );
 

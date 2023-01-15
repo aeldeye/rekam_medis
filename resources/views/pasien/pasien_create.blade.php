@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="id_dokter" class="form-label">JENIS KELAMIN</label>
+                                    <label for="jenis_kelamin" class="form-label">JENIS KELAMIN</label>
                                     <select
                                         class="form-select @error('jenis_kelamin')
                                     is-invalid
@@ -44,6 +44,17 @@
                                     </select>
                                     <div class="invalid-feedback">
                                         Silahkan Pilih Jenis Kelamin
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="usia_pasien" class="form-label">USIA</label>
+                                    <input type="number" name="usia_pasien"
+                                        class="form-control @error('usia_pasien')
+                                        is-invalid
+                                    @enderror"
+                                        id="usia_pasien" value="{{ old('usia_pasien') }}">
+                                    <div class="invalid-feedback">
+                                        Usia Tidak Boleh Kosong
                                     </div>
                                 </div>
                                 <div class="mb-3">

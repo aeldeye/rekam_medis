@@ -14,12 +14,12 @@
                                     <br><br>
                                     <thead class="table-light">
                                         <tr>
-                                            <th>NO</th>
-                                            <th>NAMA DOKTER</th>
-                                            <th>SPESIALIS</th>
-                                            <th>ALAMAT</th>
-                                            <th>NO TELEPON</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">NO</th>
+                                            <th class="text-center">NAMA DOKTER</th>
+                                            <th class="text-center">SPESIALIS</th>
+                                            <th class="text-center">ALAMAT</th>
+                                            <th class="text-center">NO TELEPON</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>

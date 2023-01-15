@@ -18,6 +18,7 @@
                                             <th class="text-center">NO IDENTITAS</th>
                                             <th class="text-center">NAMA</th>
                                             <th class="text-center">JENIS KELAMIN</th>
+                                            <th class="text-center">USIA</th>
                                             <th class="text-center">ALAMAT</th>
                                             <th class="text-center">NO TELEPON</th>
                                             <th class="text-center">AKSI</th>
@@ -29,6 +30,7 @@
                                             <td>{{ $psn->nomor_identitas }}</td>
                                             <td>{{ $psn->nama_pasien }}</td>
                                             <td>{{ $psn->jenis_kelamin }}</td>
+                                            <td>{{ $psn->usia_pasien }} Tahun</td>
                                             <td>{{ $psn->alamat }}</td>
                                             <td>{{ $psn->no_telp }}</td>
                                             <td>

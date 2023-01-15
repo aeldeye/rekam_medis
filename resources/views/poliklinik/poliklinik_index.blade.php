@@ -13,10 +13,10 @@
                                     <br><br>
                                     <thead class="table-light">
                                         <tr>
-                                            <th>NO</th>
-                                            <th>NAMA POLIKLINIK</th>
-                                            <th>LOKASI</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">NO</th>
+                                            <th class="text-center">NAMA POLIKLINIK</th>
+                                            <th class="text-center">LOKASI</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     @foreach ($poliklinik as $poli)

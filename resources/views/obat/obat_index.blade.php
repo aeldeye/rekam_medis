@@ -14,17 +14,21 @@
                                     <br><br>
                                     <thead class="table-light">
                                         <tr>
-                                            <th>NO</th>
-                                            <th>NAMA OBAT</th>
-                                            <th>KETERANGAN OBAT</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">NO</th>
+                                            <th class="text-center">NAMA OBAT</th>
+                                            <th class="text-center">JENIS</th>
+                                            <th class="text-center">KETERANGAN OBAT</th>
+                                            <th class="text-center">DOSIS OBAT</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     @foreach ($obat as $obt)
                                         <tr>
                                             <td scope="row">{{ $loop->iteration }}</td>
                                             <td>{{ $obt->nama_obat }}</td>
+                                            <td>{{ $obt->jenis_obat }}</td>
                                             <td>{{ $obt->ket_obat }}</td>
+                                            <td>{{ $obt->dosis_obat }}</td>
                                             <td>
                                                 <a href="/admin/obat/{{ $obt->id }}/edit"
                                                     class="btn btn-warning fas fa-edit" title="Edit"></a>

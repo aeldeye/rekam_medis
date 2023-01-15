@@ -33,7 +33,7 @@
                         @enderror"
                                     name="id_poli" id="id_poli">
                                     @foreach ($poli as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_poli }}</option>
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_poli ? 'selected' : ''}}>{{ $item->nama_poli }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
@@ -48,7 +48,7 @@
                         @enderror"
                                     name="id_pasien" id="id_Pasien">
                                     @foreach ($pasien as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_pasien }}</option>
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_pasien ? 'selected' : ''}}>{{ $item->nama_pasien }}</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
@@ -73,8 +73,9 @@
                             is-invalid
                         @enderror"
                                     name="id_dokter" id="id_dokter">
+                                    <option value="">-</option>
                                     @foreach ($dokter as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_dokter }} ({{ $item->spesialis }}) </option>
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_dokter ? 'selected' : ''}}>{{ $item->nama_dokter }} ({{ $item->spesialis }}) </option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
@@ -82,14 +83,30 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="diagnosa" class="form-label">DIAGNOSA DOKTER</label>
+                                <label for="id_perawat" class="form-label">PERAWAT</label>
+                                <select
+                                    class="form-select @error('id_perawat')
+                            is-invalid
+                        @enderror"
+                                    name="id_perawat" id="id_perawat">
+                                    <option value="">-</option>
+                                    @foreach ($perawat as $item)
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_perawat ? 'selected' : ''}}>{{ $item->nama_perawat }} ({{ $item->spesialis }}) </option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silahkan Pilih Perawat
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="diagnosa" class="form-label">DIAGNOSA</label>
                                 <textarea
                                     class="form-control @error('diagnosa')
                             is-invalid
                         @enderror"
                                     name="diagnosa" rows="10">{{ $rekammedis->diagnosa }}</textarea>
                                 <div class="invalid-feedback">
-                                    Diagnosa Dokter Tidak Boleh Kosong
+                                    Diagnosa Tidak Boleh Kosong
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -100,11 +117,42 @@
                         @enderror"
                                     name="id_obat" id="id_Obat">
                                     @foreach ($obat as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_obat }}</option>
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_obat ? 'selected' : ''}}>{{ $item->nama_obat }} ({{ $item->jenis_obat }})</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Silahkan Pilih Obat
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_obat" class="form-label">DOSIS</label>
+                                <select
+                                    class="form-select @error('id_obat')
+                            is-invalid
+                        @enderror"
+                                    name="id_obat" id="id_Obat2">
+                                    <option value="">Pilih Dosis</option>
+                                    @foreach ($obat as $item)
+                                        <option value="{{ $item->id }}" {{ $item->id == $rekammedis->id_obat ? 'selected' : ''}}>{{ $item->nama_obat }} ({{ $item->dosis_obat }})</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silahkan Pilih Obat
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pembayaran" class="form-label">PEMBAYARAN</label>
+                                <select
+                                    class="form-select @error('pembayaran')
+                                is-invalid
+                            @enderror"
+                                    name="pembayaran" id=""> 
+                                    <option value="">Pilih Jenis Pembayaran</option>
+                                    <option value="BPJS" {{ $rekammedis->pembayaran == "BPJS" ? 'selected' : ''}}>BPJS</option>
+                                    <option value="Umum" {{ $rekammedis->pembayaran == "Umum" ? 'selected' : ''}}>Umum</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silahkan Pilih Jenis Pembayaran
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success">
@@ -127,5 +175,6 @@
     <script>
         $('#id_Pasien').select2();
         $('#id_Obat').select2();
+        $('#id_Obat2').select2();
     </script>
 @endpush

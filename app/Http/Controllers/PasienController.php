@@ -29,6 +29,7 @@ class PasienController extends Controller
                 'nomor_identitas' => 'required|unique:pasiens,nomor_identitas',
                 'nama_pasien' => 'required',
                 'jenis_kelamin' => 'required',
+                'usia_pasien' => 'required',
                 'alamat' => 'required',
                 'no_telp' => 'required|unique:pasiens,no_telp',
             ]
@@ -54,6 +55,7 @@ class PasienController extends Controller
                 'nomor_identitas' => 'required',
                 'nama_pasien' => 'required',
                 'jenis_kelamin' => 'required',
+                'usia_pasien' => 'required',
                 'alamat' => 'required',
                 'no_telp' => 'required',
             ]

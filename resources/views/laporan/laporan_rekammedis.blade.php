@@ -8,9 +8,9 @@
                     <div class="card">
                         <div class="card-body">
                             @if (auth()->user()->level == 1)
-                                <form action="/admin/laporan/download" enctype="multipart/form-data" method="POST" target="blank">
+                                <form action="/admin/laporan/download" enctype="multipart/form-data" method="POST" target="_blank">
                                 @elseif(auth()->user()->level == 2)
-                                    <form action="/user/laporan/download" enctype="multipart/form-data" method="POST" target="blank">
+                                    <form action="/user/laporan/download" enctype="multipart/form-data" method="POST" target="_blank">
                             @endif
                             @csrf
                             <div class="row">

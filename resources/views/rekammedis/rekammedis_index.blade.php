@@ -19,16 +19,18 @@
                                     <br><br>
                                     <thead class="table-light">
                                         <tr>
-                                            <th>NO</th>
-                                            <th>TANGGAL PERIKSA</th>
-                                            <th>NAMA PASIEN</th>
-                                            <th>POLIKLINIK</th>
-                                            <th>KELUHAN</th>
-                                            <th>DOKTER</th>
-                                            <th>PERAWAT</th>
-                                            <th>DIAGNOSA</th>
-                                            <th>OBAT</th>
-                                            <th>AKSI</th>
+                                            <th class="text-center">NO</th>
+                                            <th class="text-center">TGL PERIKSA</th>
+                                            <th class="text-center">NAMA PASIEN</th>
+                                            <th class="text-center">POLIKLINIK</th>
+                                            <th class="text-center">KELUHAN</th>
+                                            <th class="text-center">DOKTER</th>
+                                            <th class="text-center">PERAWAT</th>
+                                            <th class="text-center">DIAGNOSA</th>
+                                            <th class="text-center">OBAT</th>
+                                            <th class="text-center">DOSIS</th>
+                                            <th class="text-center">PEMBAYARAN</th>
+                                            <th class="text-center">AKSI</th>
                                         </tr>
                                     </thead>
                                     @foreach ($rekammedis as $rm)
@@ -39,31 +41,37 @@
                                             <td>{{ $rm->poliklinik->nama_poli }}</td>
                                             <td>{{ $rm->keluhan }}</td>
 
-                                            @if ($rm->id_dokter == Null)
+                                            @if ($rm->id_dokter == null)
                                                 <td>-</td>
                                             @elseif ($rm->id_dokter)
                                                 <td>{{ $rm->dokter->nama_dokter }}</td>
                                             @endif
 
-                                            @if ($rm->id_perawat == Null)
+                                            @if ($rm->id_perawat == null)
                                                 <td>-</td>
                                             @elseif ($rm->id_perawat)
                                                 <td>{{ $rm->perawat->nama_perawat }}</td>
                                             @endif
 
                                             <td>{{ $rm->diagnosa }}</td>
-                                            <td>{{ $rm->obat->nama_obat }}</td>
+                                            <td>{{ $rm->obat->nama_obat }} ({{ $rm->obat->jenis_obat }})</td>
+                                            <td>{{ $rm->obat->dosis_obat }}</td>
+                                            <td>{{ $rm->pembayaran }}</td>
                                             <td>
                                                 @if (auth()->user()->level == 1)
+                                                    <a href="/admin/rekammedis/{{ $rm->id }}/view"
+                                                        class="btn btn-success fas fa-file" title="View"></a>
                                                     <a href="/admin/rekammedis/{{ $rm->id }}/edit"
                                                         class="btn btn-warning fas fa-edit" title="Edit"></a>
                                                     <a href="/admin/rekammedis/{{ $rm->id }}/delete"
                                                         class="btn btn-danger fas fa-trash-alt" title="Hapus"
                                                         onclick="return confirm('Anda yakin?')"></a>
                                                 @elseif(auth()->user()->level == 2)
-                                                    <a href="/admin/rekammedis/{{ $rm->id }}/edit"
+                                                    <a href="/user/rekammedis/{{ $rm->id }}/view"
+                                                        class="btn btn-success fas fa-file" title="View"></a>
+                                                    <a href="/user/rekammedis/{{ $rm->id }}/edit"
                                                         class="btn btn-warning fas fa-edit" title="Edit"></a>
-                                                    <a href="/admin/rekammedis/{{ $rm->id }}/delete"
+                                                    <a href="/user/rekammedis/{{ $rm->id }}/delete"
                                                         class="btn btn-danger fas fa-trash-alt" title="Hapus"
                                                         onclick="return confirm('Anda yakin?')"></a>
                                                 @endif
@@ -82,12 +90,10 @@
 @push('scripts2')
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#rekmed').DataTable(
-                {
-                    "searching":true,
-                    "paging":true,
-                }
-            );
+            $('#rekmed').DataTable({
+                "searching": true,
+                "paging": true,
+            });
         });
     </script>
 @endpush

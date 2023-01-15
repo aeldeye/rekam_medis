@@ -120,11 +120,42 @@
                                     name="id_obat" id="id_Obat">
                                     <option value="">Pilih Obat</option>
                                     @foreach ($obat as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_obat }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama_obat }} ({{ $item->jenis_obat }})</option>
                                     @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Silahkan Pilih Obat
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_obat" class="form-label">DOSIS</label>
+                                <select
+                                    class="form-select @error('id_obat')
+                            is-invalid
+                        @enderror"
+                                    name="id_obat" id="id_Obat2">
+                                    <option value="">Pilih Dosis</option>
+                                    @foreach ($obat as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_obat }} ({{ $item->dosis_obat }})</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silahkan Pilih Obat
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pembayaran" class="form-label">PEMBAYARAN</label>
+                                <select
+                                    class="form-select @error('pembayaran')
+                                is-invalid
+                            @enderror"
+                                    name="pembayaran" id="">
+                                    <option value="">Pilih Jenis Pembayaran</option>
+                                    <option value="BPJS">BPJS</option>
+                                    <option value="Umum">Umum</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Silahkan Pilih Jenis Pembayaran
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success">
@@ -147,5 +178,6 @@
     <script>
         $('#id_Pasien').select2();
         $('#id_Obat').select2();
+        $('#id_Obat2').select2();
     </script>
 @endpush

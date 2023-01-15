@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use App\Models\Dokter;
 use App\Models\Obat;
 use App\Models\Pasien;
@@ -9,6 +9,7 @@ use App\Models\Perawat;
 use App\Models\Poliklinik;
 use App\Models\Rekammedis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RekammedisController extends Controller
 {
@@ -56,8 +57,9 @@ class RekammedisController extends Controller
         $poli = Poliklinik::all();
         $pasien = Pasien::all();
         $dokter = Dokter::all();
+        $perawat = Perawat::all();
         $obat = Obat::all();
-        return view('rekammedis.rekammedis_edit', compact(['rekammedis', 'poli', 'pasien', 'dokter','obat']));
+        return view('rekammedis.rekammedis_edit', compact(['rekammedis', 'poli', 'pasien', 'dokter','obat','perawat']));
     }
 
     public function update(Request $request, $id)
@@ -92,5 +94,31 @@ class RekammedisController extends Controller
             return redirect('/admin/rekammedis/index')->with('pesan', 'Data sudah dihapus!');
         elseif (auth()->user()->level == 2)
             return redirect('/user/rekammedis/index')->with('pesan', 'Data sudah dihapus!');
+    }
+
+    public function view($id)
+    {
+        $rekammedis = Rekammedis::findOrFail($id);
+        $poli = Poliklinik::all();
+        $pasien = Pasien::all();
+        $dokter = Dokter::all();
+        $perawat = Perawat::all();
+        $obat = Obat::all();
+        return view('rekammedis.rekammedis_view', compact(['rekammedis', 'poli', 'pasien', 'dokter','obat','perawat']));
+    }
+
+    public function lappasien($id)
+    {
+
+        $rekammedis = Rekammedis::findOrFail($id);
+        $poli = Poliklinik::all();
+        $pasien = Pasien::all();
+        $dokter = Dokter::all();
+        $perawat = Perawat::all();
+        $obat = Obat::all();
+
+        $pdf_doc = PDF::loadView('rekammedis.rekammedis_lappasien', compact('rekammedis', 'poli', 'pasien', 'dokter','obat','perawat'))->setPaper('a4', 'portrait');
+
+        return $pdf_doc->stream('laporan_pasien.pdf');
     }
 }
