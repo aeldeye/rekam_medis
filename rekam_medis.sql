@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 01:18 PM
+-- Generation Time: Jan 15, 2023 at 01:20 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -271,20 +271,6 @@ INSERT INTO `rekammedis` (`id`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rm_obats`
---
-
-CREATE TABLE `rm_obats` (
-  `id` int(50) NOT NULL,
-  `id_rekammedis` int(50) NOT NULL,
-  `id_obat` int(50) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -377,14 +363,6 @@ ALTER TABLE `rekammedis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rm_obats`
---
-ALTER TABLE `rm_obats`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_rekammedis` (`id_rekammedis`),
-  ADD KEY `id_obat` (`id_obat`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -449,12 +427,6 @@ ALTER TABLE `polikliniks`
 --
 ALTER TABLE `rekammedis`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `rm_obats`
---
-ALTER TABLE `rm_obats`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
