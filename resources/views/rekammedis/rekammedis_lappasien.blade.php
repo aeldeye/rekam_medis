@@ -120,6 +120,12 @@
             </tr>
             <br>
             <tr>
+                <td style="width: 30%">TENSI DARAH</td>
+                <td style="width: 5%">:</td>
+                <td style="width: 65%">{{ $rekammedis->tensi_darah }} mmHg</td>
+            </tr>
+            <br>
+            <tr>
                 <td style="width: 30%">OBAT</td>
                 <td style="width: 5%">:</td>
                 <td style="width: 65%">{{ $rekammedis->obat->nama_obat }} ({{ $rekammedis->obat->jenis_obat }})</td>

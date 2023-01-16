@@ -117,6 +117,11 @@
                                 </select>
                             </div>
                             <div class="mb-3">
+                                <label for="tensi_darah" class="form-label">TENSI DARAH</label>
+                                <input type="text" name="tensi_darah" class="form-control" id="tensi_darah" disabled
+                                    value="{{ $rekammedis->tensi_darah }} mmHg">
+                            </div>
+                            <div class="mb-3">
                                 <label for="dosis_obat" class="form-label">DOSIS</label>
                                 <select class="form-select" name="dosis_obat" id="id_Obat2" disabled>
                                     <option value="">Pilih Dosis</option>

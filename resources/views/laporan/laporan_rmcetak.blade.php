@@ -50,13 +50,14 @@
                     <table class="table table-bordered text-center" style="font-size: 13px">
                         <tr>
                             <th>NO</th>
-                            <th>TANGGAL PERIKSA</th>
+                            <th>TGL PERIKSA</th>
                             <th>NAMA PASIEN</th>
                             <th>POLIKLINIK</th>
                             <th>KELUHAN</th>
                             <th>DOKTER</th>
                             <th>PERAWAT</th>
                             <th>DIAGNOSA</th>
+                            <th>TENSI DARAH</th>
                             <th>OBAT</th>
                             <th>DOSIS</th>
                             <th>PEMBAYARAN</th>
@@ -64,7 +65,7 @@
                         @foreach ($lap as $l)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
-                                <td>{{ date('j M Y', strtotime($l->tgl_periksa)) }}</td>
+                                <td>{{ date('d/m/Y', strtotime($l->tgl_periksa)) }}</td>
                                 <td>{{ $l->nama_pasien }}</td>
                                 <td>{{ $l->nama_poli }}</td>
                                 <td>{{ $l->keluhan }}</td>
@@ -82,6 +83,7 @@
                                 @endif
 
                                 <td>{{ $l->diagnosa }}</td>
+                                <td>{{ $l->tensi_darah }} mmHg</td>
                                 <td>{{ $l->nama_obat }}</td>
                                 <td>{{ $l->dosis_obat }}</td>
                                 <td>{{ $l->pembayaran }}</td>

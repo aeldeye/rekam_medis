@@ -40,6 +40,7 @@ class RekammedisController extends Controller
                 // 'id_dokter' => 'required',
                 // 'id_dokter' => 'required',
                 'diagnosa' => 'required',
+                'tensi_darah' => 'required',
                 'id_obat' => 'required',
             ]
         );
@@ -74,6 +75,7 @@ class RekammedisController extends Controller
                 'keluhan' => 'required',
                 'id_dokter' => 'required',
                 'diagnosa' => 'required',
+                'tensi_darah' => 'required',
                 'id_obat' => 'required',
             ]
         );

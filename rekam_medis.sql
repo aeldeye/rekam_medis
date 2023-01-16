@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 01:20 PM
+-- Generation Time: Jan 16, 2023 at 11:51 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -239,14 +239,15 @@ INSERT INTO `polikliniks` (`id`, `nama_poli`, `lokasi`, `created_at`, `updated_a
 CREATE TABLE `rekammedis` (
   `id` int(50) NOT NULL,
   `tgl_periksa` date NOT NULL,
-  `id_poli` int(50) NOT NULL,
-  `id_pasien` int(50) NOT NULL,
+  `id_poli` int(50) DEFAULT NULL,
+  `id_pasien` int(50) DEFAULT NULL,
   `keluhan` text NOT NULL,
   `id_dokter` int(50) DEFAULT NULL,
   `id_perawat` int(50) DEFAULT NULL,
   `diagnosa` text NOT NULL,
-  `id_obat` int(50) NOT NULL,
-  `dosis` int(11) DEFAULT NULL,
+  `tensi_darah` varchar(50) NOT NULL,
+  `id_obat` int(50) DEFAULT NULL,
+  `dosis` int(11) NOT NULL,
   `pembayaran` enum('BPJS','Umum') DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -256,17 +257,17 @@ CREATE TABLE `rekammedis` (
 -- Dumping data for table `rekammedis`
 --
 
-INSERT INTO `rekammedis` (`id`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `id_perawat`, `diagnosa`, `id_obat`, `dosis`, `pembayaran`, `created_at`, `updated_at`) VALUES
-(11, '2022-11-10', 1, 3, 'Badan Panas', 23, 2, 'Demam', 8, NULL, 'BPJS', '2022-11-15 06:55:22', '2022-11-15 06:55:22'),
-(12, '2022-11-11', 2, 4, 'Pilek', 25, 3, 'Ada Bakteri di Saluran Hidung', 8, NULL, 'BPJS', '2022-11-15 06:56:21', '2022-11-15 06:56:21'),
-(13, '2022-11-12', 4, 7, 'Sakit Gigi', 24, 4, 'Gigi Berlubang', 11, 11, 'BPJS', '2022-11-15 06:57:04', '2022-11-15 06:57:04'),
-(14, '2022-11-13', 1, 6, 'Kepala Pusing Berat', 23, 2, 'Gejala Vertigo', 6, NULL, 'BPJS', '2022-11-15 06:58:22', '2022-11-15 06:58:22'),
-(15, '2022-11-15', 4, 5, 'Gusi Sakit', 24, 3, 'Ada pembengkakan pada Gusi', 8, NULL, 'BPJS', '2022-11-15 07:00:36', '2022-11-15 07:00:36'),
-(16, '2022-11-15', 1, 3, 'Sakit Kepala', 23, 4, 'Gejala Vertigo', 4, NULL, 'BPJS', '2022-11-15 07:06:57', '2022-11-15 07:07:14'),
-(17, '2022-12-01', 1, 4, 'asdasd', NULL, 3, 'qweqwe', 6, NULL, 'BPJS', '2022-12-05 12:09:00', '2022-12-05 12:09:00'),
-(18, '2022-12-05', 2, 7, 'Cek Kandungan', 25, NULL, 'Hanya Gerakan Biasa', 10, NULL, 'BPJS', '2022-12-05 12:30:23', '2022-12-05 12:30:23'),
-(19, '2022-12-06', 4, 5, 'Sakit Gigi dan Gusi', 24, 2, 'Ada Pembengkakan pada Gusi dan Gigi Berlubang', 5, NULL, 'BPJS', '2022-12-05 12:31:55', '2022-12-05 12:31:55'),
-(20, '2022-12-06', 1, 3, 'Demam', 23, NULL, 'Karena Terkena Hujan', 5, NULL, 'BPJS', '2022-12-06 06:30:40', '2022-12-06 06:30:40');
+INSERT INTO `rekammedis` (`id`, `tgl_periksa`, `id_poli`, `id_pasien`, `keluhan`, `id_dokter`, `id_perawat`, `diagnosa`, `tensi_darah`, `id_obat`, `dosis`, `pembayaran`, `created_at`, `updated_at`) VALUES
+(11, '2022-11-10', 1, 3, 'Badan Panas', 23, 2, 'Demam', '', 8, 0, 'BPJS', '2022-11-15 06:55:22', '2022-11-15 06:55:22'),
+(12, '2022-11-11', 2, 4, 'Pilek', 25, 3, 'Ada Bakteri di Saluran Hidung', '', 8, 0, 'BPJS', '2022-11-15 06:56:21', '2022-11-15 06:56:21'),
+(13, '2022-11-12', 4, 7, 'Sakit Gigi', 24, 4, 'Gigi Berlubang', '', 11, 11, 'BPJS', '2022-11-15 06:57:04', '2022-11-15 06:57:04'),
+(14, '2022-11-13', 1, 6, 'Kepala Pusing Berat', 23, 2, 'Gejala Vertigo', '', 6, 0, 'BPJS', '2022-11-15 06:58:22', '2022-11-15 06:58:22'),
+(15, '2022-11-15', 4, 5, 'Gusi Sakit', 24, 3, 'Ada pembengkakan pada Gusi', '', 8, 0, 'BPJS', '2022-11-15 07:00:36', '2022-11-15 07:00:36'),
+(16, '2022-11-15', 1, 3, 'Sakit Kepala', 23, 4, 'Gejala Vertigo', '', 4, 0, 'BPJS', '2022-11-15 07:06:57', '2022-11-15 07:07:14'),
+(17, '2022-12-01', 1, 4, 'asdasd', NULL, 3, 'qweqwe', '', 6, 0, 'BPJS', '2022-12-05 12:09:00', '2022-12-05 12:09:00'),
+(18, '2022-12-05', 2, 7, 'Cek Kandungan', 25, NULL, 'Hanya Gerakan Biasa', '', 10, 0, 'BPJS', '2022-12-05 12:30:23', '2022-12-05 12:30:23'),
+(19, '2022-12-06', 4, 5, 'Sakit Gigi dan Gusi', 24, 2, 'Ada Pembengkakan pada Gusi dan Gigi Berlubang', '', 5, 0, 'BPJS', '2022-12-05 12:31:55', '2022-12-05 12:31:55'),
+(20, '2022-12-06', 1, 3, 'Demam', 23, NULL, 'Karena Terkena Hujan', '90/60', 5, 0, 'BPJS', '2022-12-06 06:30:40', '2023-01-16 10:42:57');
 
 -- --------------------------------------------------------
 

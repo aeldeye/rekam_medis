@@ -27,6 +27,7 @@
                                             <th class="text-center">DOKTER</th>
                                             <th class="text-center">PERAWAT</th>
                                             <th class="text-center">DIAGNOSA</th>
+                                            <th class="text-center">TENSI DARAH</th>
                                             <th class="text-center">OBAT</th>
                                             <th class="text-center">DOSIS</th>
                                             <th class="text-center">PEMBAYARAN</th>
@@ -54,6 +55,7 @@
                                             @endif
 
                                             <td>{{ $rm->diagnosa }}</td>
+                                            <td>{{ $rm->tensi_darah }} mmHg</td>
                                             <td>{{ $rm->obat->nama_obat }} ({{ $rm->obat->jenis_obat }})</td>
                                             <td>{{ $rm->obat->dosis_obat }}</td>
                                             <td>{{ $rm->pembayaran }}</td>

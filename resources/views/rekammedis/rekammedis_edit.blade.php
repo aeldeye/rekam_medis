@@ -110,6 +110,17 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <label for="tensi_darah" class="form-label">TENSI DARAH</label>
+                                <input type="text" name="tensi_darah"
+                                    class="form-control @error('tensi_darah')
+                                is-invalid
+                            @enderror"
+                                    id="tensi_darah" value="{{ $rekammedis->tensi_darah }}">
+                                <div class="invalid-feedback">
+                                    Tensi Darah Tidak Boleh Kosong
+                                </div>
+                            </div>
+                            <div class="mb-3">
                                 <label for="id_obat" class="form-label">OBAT</label>
                                 <select
                                     class="form-select @error('id_obat')
